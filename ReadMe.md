@@ -106,7 +106,7 @@ taste-namibia/
 
 ## Customization
 
-### Additegories
+### Addition tegories
 1. Update the category options in `submit.html`
 2. Add corresponding filter buttons in `recipes.html`
 3. Update the `getCategoryDisplayName()` function in `recipes.js`
