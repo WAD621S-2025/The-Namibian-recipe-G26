@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Recipe - Taste Namibia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="chef-icon"><i class="fas fa-utensils"></i></span>
+                    <span class="logo-text">Taste Namibia</span>
+                </div>
+                
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="recipes.html" class="nav-link">Recipes</a>
+                    <a href="submit.html" class="nav-link active">Submit Recipe</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+
+                <div class="nav-mobile">
+                    <a href="recipes.html" class="nav-icon" title="Recipes"><i class="fas fa-search"></i></a>
+                    <a href="submit.html" class="nav-icon" title="Submit Recipe"><i class="fas fa-plus"></i></a>
+                    <a href="about.html" class="nav-icon" title="About"><i class="fas fa-info-circle"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+  <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Share Your Recipe</h1>
+                <p>Help preserve Namibian culinary traditions by sharing your family recipes</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-content">
+                    <span class="success-icon"><i class="fas fa-check-circle" style="color: #10b981; font-size: 4rem;"></i></span>
+                    <h2>Recipe Submitted!</h2>
+                    <p>Thank you for sharing your traditional Namibian recipe. It will be reviewed and added to our collection.</p>
+                    <a href="recipes.html" class="btn btn-primary"><i class="fas fa-book-open"></i> Browse Recipes</a>
+                </div>
+            </div>
+
+            <!-- Recipe Form -->
+            <div class="form-container" id="formContainer">
+                <form id="recipeForm" action="submit_recipe.php" method="POST" enctype="multipart/form-data">
+                    <!-- Basic Recipe Information -->
+                    <div class="form-section">
+                        <h2>Recipe Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="recipeName">Recipe Name *</label>
+                                <input type="text" id="recipeName" name="recipe_name" required 
+                                       placeholder="e.g., Traditional Biltong">
+                            </div>
+                                        <div class="form-group">
+                                <label for="category">Category *</label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select a category</option>
+                                    <option value="main-dish">Main Dish</option>
+                                    <option value="snacks">Snacks</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="street-food">Street Food</option>
+                                    <option value="staple">Staple</option>
+                                    <option value="seasonal">Seasonal</option>
+                                    <option value="dessert">Dessert</option>
+                                    <option value="beverage">Beverage</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description *</label>
+                            <textarea id="description" name="description" required rows="3"
+                                      placeholder="Brief description of the dish and its significance"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeImage">Recipe Image</label>
+                            <input type="file" id="recipeImage" name="recipe_image" accept="image/*">
+                            <small>Or provide image URL:</small>
+                            <input type="url" name="image_url" placeholder="https://example.com/image.jpg">
+                        </div>
+                    </div>     
+ 
+                    <!-- Recipe Details -->
+                    <div class="form-section">
+                        <h2>Recipe Details</h2>
+                        
+                        <div class="form-row form-row-4">
+                            <div class="form-group">
+                                <label for="prepTime">Prep Time (min)</label>
+                                <input type="number" id="prepTime" name="prep_time" min="0" value="15">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cookTime">Cook Time (min)</label>
+                                <input type="number" id="cookTime" name="cook_time" min="0" value="30">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="servings">Servings</label>
+                                <input type="number" id="servings" name="servings" min="1" value="4">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="difficulty">Difficulty</label>
+                                <select id="difficulty" name="difficulty">
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <!-- Ingredients -->
+                    <div class="form-section">
+                        <h2>Ingredients *</h2>
+                        <div id="ingredientsList">
+                            <div class="ingredient-item">
+                                <input type="text" name="ingredients[]" placeholder="Ingredient 1" required>
+                                <button type="button" onclick="removeIngredient(this)" class="remove-btn">−</button>
+                            </div>
+                        </div>
+                        <button type="button" onclick="addIngredient()" class="add-btn">+ Add Ingredient</button>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="form-section">
+                        <h2>Instructions *</h2>
+                        <div id="instructionsList">
+                            <div class="instruction-item">
+                                <span class="step-number">1</span>
+                                <textarea name="instructions[]" placeholder="Step 1" rows="2" required></textarea>
+                                <button type="button" onclick="removeInstruction(this)" class="remove-btn">−</button>
+                            </div>
+                        </div>
+                        <button type="button" onclick="addInstruction()" class="add-btn">+ Add Step</button>
+                    </div>
+
+                    <!-- Cultural Context -->
+                    <div class="form-section">
+                        <h2>Cultural Context</h2>
+                        <div class="form-group">
+                            <label for="culturalContext">Cultural Context</label>
+                            <textarea id="culturalContext" name="cultural_context" rows="3"
+                                      placeholder="Share the story behind this recipe, its cultural significance, or family traditions associated with it"></textarea>
+                        </div>
+                    </div>
+   
+                    <!-- Submit Buttons -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Recipe</button>
+                        <a href="recipes.html" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="chef-icon"><i class="fas fa-utensils"></i></span>
+                    <span>Taste Namibia</span>
+                </div>
+                <p>Preserving and sharing the rich culinary heritage of Namibia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="submit.js"></script>
+</body>
+</html>                         

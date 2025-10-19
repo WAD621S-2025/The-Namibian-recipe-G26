@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - Taste Namibia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="chef-icon"><i class="fas fa-utensils"></i></span>
+                    <span class="logo-text">Taste Namibia</span>
+                </div>
+                
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="recipes.html" class="nav-link active">Recipes</a>
+                    <a href="submit.html" class="nav-link">Submit Recipe</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+
+                <div class="nav-mobile">
+                    <a href="recipes.html" class="nav-icon" title="Recipes"><i class="fas fa-search"></i></a>
+                    <a href="submit.html" class="nav-icon" title="Submit Recipe"><i class="fas fa-plus"></i></a>
+                    <a href="about.html" class="nav-icon" title="About"><i class="fas fa-info-circle"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Traditional Namibian Recipes</h1>
+                <p>Discover authentic dishes from across Namibia's diverse regions and cultures</p>
+            </div>
+            <!-- Search and Filter Section -->
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search recipes or ingredients..." class="search-input">
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="main-dish">Main Dish</button>
+                    <button class="filter-btn" data-category="snacks">Snacks</button>
+                    <button class="filter-btn" data-category="breakfast">Breakfast</button>
+                    <button class="filter-btn" data-category="street-food">Street Food</button>
+                    <button class="filter-btn" data-category="staple">Staple</button>
+                    <button class="filter-btn" data-category="seasonal">Seasonal</button>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-count">
+                <span id="resultsCount">6 recipes found</span>
+            </div>
+
+            <!-- Recipe Grid -->
+            <div class="recipe-grid" id="recipeGrid">
+                <!-- Recipes will be populated by JavaScript -->
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search" style="font-size: 3rem; color: #d1d5db; margin-bottom: 1rem;"></i>
+                <p>No recipes found matching your search.</p>
+                <button onclick="clearFilters()" class="btn btn-primary"><i class="fas fa-redo"></i> Clear filters</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Recipe details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div> 
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="chef-icon"><i class="fas fa-utensils"></i></span>
+                    <span>Taste Namibia</span>
+                </div>
+                <p>Preserving and sharing the rich culinary heritage of Namibia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="recipes.js"></script>
+</body>
+</html>
