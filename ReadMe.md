@@ -24,6 +24,7 @@ A web-based platform for discovering, searching, and sharing traditional Namibia
 - XAMPP (includes Apache, PHP, and MySQL)
 - Web browser
 - Text editor
+- URL
 
 ### Setup Instructions
 
