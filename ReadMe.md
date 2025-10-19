@@ -1,7 +1,7 @@
 # Taste Namibia - Traditional Recipe Platform
 
 A web-based platform for discovering, searching, and sharing traditional Namibian recipes, built with HTML, CSS, JavaScript, and PHP.
-
+//Max//
 ## Features
 
 - **Homepage**: Beautiful introduction to Namibian cuisine with featured recipes
@@ -99,13 +99,13 @@ taste-namibia/
 
 ### Search Functionality
 - **Real-time search**: Results update as you type
-- **Multi-field search**: Searches recipe names, descriptions, and ingredients
+- d search**: Searches recipe names, descriptions, and ingredients
 - **Category filtering**: Filter by dish type
 - **Combined filters**: Search and category filters work together
 
 ## Customization
 
-### Adding New Categories
+### Additegories
 1. Update the category options in `submit.html`
 2. Add corresponding filter buttons in `recipes.html`
 3. Update the `getCategoryDisplayName()` function in `recipes.js`
